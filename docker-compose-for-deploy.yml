@@ -1,0 +1,24 @@
+version: "3.4"
+services:
+  golang:
+    container_name: "golang"
+    build: 
+      context: ./
+      dockerfile: ./docker/go/Dockerfile
+    ports:
+      - "8080:8080"
+  mysql:
+    container_name: "mysql"
+    build: 
+      context: ./
+      dockerfile: ./docker/mysql/Dockerfile
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_db:/var/lib/mysql:delegated
+    environment:
+      - MYSQL_DATABASE=test
+      - MYSQL_ROOT_PASSWORD=password
+volumes:
+  mysql_db:
+    driver: local

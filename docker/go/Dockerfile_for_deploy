@@ -1,0 +1,12 @@
+# Builder Container
+FROM golang:1.11.0-alpine3.8 as builder
+WORKDIR /usr/local/bin
+COPY ./src .
+RUN go build -o go_docker_deploy_boilerplate main.go
+
+# Exec Container
+FROM alpine:latest
+EXPOSE 8080
+COPY --from=builder /usr/local/bin/go_docker_deploy_boilerplate /usr/local/bin/go_docker_deploy_boilerplate
+RUN chmod +x /usr/local/bin/go_docker_deploy_boilerplate
+CMD ["/usr/local/bin/go_docker_deploy_boilerplate"]
