@@ -1,4 +1,3 @@
-# Builder Container
 FROM golang:1.11.0-alpine3.8 as builder
 WORKDIR /usr/local/bin
 COPY ./src .
