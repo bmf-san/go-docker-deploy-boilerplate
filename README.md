@@ -5,8 +5,11 @@
 - docker-compose
 
 # Get started
+Before starting, you need to create a server on Conoha VPS,
+and set up an ssh keys.
+
 ## Docker
-### For local
+## For local
 `docker-compose build`
 `docker-compose up -d`
 
