@@ -8,6 +8,9 @@
 Before starting, you need to create a server on Conoha VPS,
 and set up an ssh keys.
 
+And you also need to install docker-machine on a server.
+https://docs.docker.com/machine/install-machine/
+
 ## Docker
 ## For local
 `docker-compose build`
